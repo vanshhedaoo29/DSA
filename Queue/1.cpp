@@ -8,7 +8,7 @@ int front = -1, rear = -1;
 int main()
 {
     int choice, item;
-    cout << "1. Enqueue\n2. Dequeue\n3. Display\n4. Exit\n";
+    cout << "--- MENU ---\n1. Enqueue\n2. Dequeue\n3. Display\n4. Exit\n";
 
     while (1){
         cout << "Enter your choice : ";
@@ -29,14 +29,46 @@ int main()
                     rear++;
                 }
                 queue[rear] = item;
-                cout << "Item Inserted : \n";
+                cout << "Item Inserted\n";
             }
             break;
 
-            
+            case 2:
+            if(front == -1){
+                cout << "Underflow & Exit !!.\n";
+            }
+            else{
+                item = queue[front];
+                if(front == rear){
+                    front = rear = -1;
+                }
+                else{
+                    front++;
+                }
+                cout << "Item Deleted\n";    
+            }
+            break;
+
+            case 3:
+            if(front == -1){
+                cout << "Queue is empty. \n";
+            }
+            else{
+                cout << "Queue elements : ";
+                for(int i = front; i <= rear ; i++){
+                    cout << queue[i] << " ";
+                }
+                cout << "\n";
+            }
+            break;
+
+            case 4:
+            cout << "Exited..\n";
+            return 0;
+
+            default:
+            cout << "Invalid Choice. !!\n";
 
         }
-
-
     }
 }
